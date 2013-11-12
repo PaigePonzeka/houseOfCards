@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title> GMA O'Doh's House Of Cards </title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/master.css">
+  </head>
+  <body>
+    <h1> Welcome to GMA O'Doh's House of Cards </h1>
+
+    <ul class="js-players-container">
+    </ul>
+
+    <script id="player-template" type="text/x-handlebars-template">
+      
+        {{#each this}}
+          <li>
+            <ul>
+              {{#each hand}}
+                <li>
+                  {{this.name}}
+                  of
+                  {{this.suit}}
+                </li>
+              {{/each}}
+            </ul>
+
+            <div class="player-name">
+              {{name}}
+            </div>
+            <div> 
+              {{lifeCount}}
+            </div>
+          </li>
+        {{/each}}
+    </script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="js/handlebars-v1.1.2.js"></script>
+    
+    <script type="text/javascript" src="js/master.js"></script>
+  </body>
+</html>
