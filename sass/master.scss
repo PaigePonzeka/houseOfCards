@@ -35,6 +35,15 @@ h1 {
 
   .player {
     position: absolute;
+    border: 2px solid #fff;
+
+    &.active-player {
+      border-color: #f00;
+
+      .card {
+        cursor: pointer;
+      }
+    }
   }
 
   .player-0 {
@@ -63,14 +72,23 @@ h1 {
   left: 50%;
   margin-top: -50px;
   margin-left: -100px;
-  width: 220px;
+  width: 240px;
 
   .game-cards-deck {
     float: left;
+    cursor: pointer;
   }
 
   .game-cards-discard {
     float: right;
+    cursor: pointer;
+    position: relative;
+    
+    ul li {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
 
   }
 }

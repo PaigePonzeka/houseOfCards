@@ -4,6 +4,8 @@ var cardValues = [],
  deck = [], 
  players = [],
  cardValues = [],
+ playerTurn,
+ numOfPlayers = 4,
  randomNames = ["GMA O'Doh", "Colleen", "Uncle Gary", "Skylar Anne"],
  playersSource  = $("#player-template").html(),
  playersTemplate = Handlebars.compile(playersSource),
@@ -12,18 +14,12 @@ var cardValues = [],
 
 $(document).ready(function(){
   init();
-
   shuffleDeck(deck);
   generatePlayers();
   dealCards(3);
   draw();
-  /*printAllCards();*/
-  /*generateSuits(suits);
-  generateDeck();
-  shuffleDeck(deck);
-  generatePlayers();
-  dealCards(3);
-  draw();*/
+  playerTurn = 0;
+  highlightActivePlayer();
 });
 
 /*
@@ -36,6 +32,23 @@ var init = function(){
   generateDeck();
 }
 
+var setPlayerTurn = function() {
+  playerTurn++;
+
+  if(playerTurn == numOfPlayers){
+    playerTurn = 0;
+  }
+}
+
+var endTurn = function() {
+  setPlayerTurn();
+  highlightActivePlayer();
+}
+
+var highlightActivePlayer = function() {
+  $('.player').removeClass('active-player');
+  $('.player-' + playerTurn).addClass('active-player');
+}
 /*
  * Draws items on the board
  */
@@ -210,6 +223,43 @@ var generateSuits = function(){
   suits[3] = setSuit("&hearts;", 3, "heart");
 }
 
+var generateCard = function(cardObj) {
+  return cardsTemplate(cardObj);
+}
+/*
+ * Event Listeners
+ */
+
+/* 
+ * Allows Users to select a New Card from the Deck
+ */
+ $('.js-card-deck').click(function(){
+  // draw a new card to the deck and add it to the active players hand
+  var newCard = deck.pop();
+  var cardHtml = generateCard(newCard);
+  $('.active-player').find('.js-player-hand').addClass('js-player-hand-discard').append('<li>' + cardHtml +"</li>");
+ });
+
+/*
+ * Lets Users select a card from the discard pile for their hand
+ */
+ $('.js-discarded-cards').on('click', '.js-discarded-card', function(){
+  console.log("discarded clicked");
+    var discardedCard = $(this).remove();
+    console.log(discardedCard.attr('class'));
+    discardedCard.removeClass('js-discarded-card');
+    $('.active-player').find('.js-player-hand').addClass('js-player-hand-discard').append(discardedCard);
+ });
+
+/*
+ * Lets Users discard a card when they have four cards in their hand
+ */
+ $('.js-board').on('click', '.js-player-hand-discard > li', function(){
+    var discardedCard = $(this).remove().addClass('js-discarded-card');
+    $('.js-player-hand-discard').removeClass('.js-player-hand-discard');
+    $('.js-discarded-cards').append(discardedCard);
+    endTurn();
+ });
 
 /* --------------------------
  *  Handlebar Helpers 
