@@ -1,6 +1,71 @@
 /* 
  * Main CSS File
  */
+/* line 17, ../../../.rvm/gems/ruby-2.0.0-p0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../.rvm/gems/ruby-2.0.0-p0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../.rvm/gems/ruby-2.0.0-p0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../.rvm/gems/ruby-2.0.0-p0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../.rvm/gems/ruby-2.0.0-p0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../.rvm/gems/ruby-2.0.0-p0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../.rvm/gems/ruby-2.0.0-p0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../.rvm/gems/ruby-2.0.0-p0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../.rvm/gems/ruby-2.0.0-p0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
 /*!
  * Bootstrap v2.3.1
  *
@@ -2487,7 +2552,7 @@ table th[class*="span"],
   *margin-right: .3em;
   line-height: 14px;
   vertical-align: text-top;
-  background-image: url('/images/glyphicons-halflings.png');
+  background-image: url('../images/glyphicons-halflings.png');
   background-position: 14px 14px;
   background-repeat: no-repeat;
   margin-top: 1px;
@@ -2512,7 +2577,7 @@ table th[class*="span"],
 .dropdown-submenu:focus > a > [class^="icon-"],
 .dropdown-submenu:hover > a > [class*=" icon-"],
 .dropdown-submenu:focus > a > [class*=" icon-"] {
-  background-image: url('/images/glyphicons-halflings-white.png');
+  background-image: url('../images/glyphicons-halflings-white.png');
 }
 
 /* line 52, ../../../.rvm/gems/ruby-2.0.0-p0/gems/compass_twitter_bootstrap-2.3.1/stylesheets/compass_twitter_bootstrap/_sprites.scss */
@@ -5814,7 +5879,7 @@ input[type="submit"].btn.btn-mini {
   filter: alpha(opacity=80);
 }
 /* line 16, ../../../.rvm/gems/ruby-2.0.0-p0/gems/compass_twitter_bootstrap-2.3.1/stylesheets/compass_twitter_bootstrap/_tooltip.scss */
-.tooltip.top {
+.tooltip.top, .tooltip.top_left, .card-4 .tooltip.symbol-0, .card-5 .tooltip.symbol-0, .card-6 .tooltip.symbol-0, .card-7 .tooltip.symbol-0, .card-8 .tooltip.symbol-0, .tooltip.top_right, .card-4 .tooltip.symbol-2, .card-5 .tooltip.symbol-2, .card-6 .tooltip.symbol-3, .card-7 .tooltip.symbol-3, .card-8 .tooltip.symbol-3 {
   margin-top: -3px;
   padding: 5px 0;
 }
@@ -5857,7 +5922,7 @@ input[type="submit"].btn.btn-mini {
 }
 
 /* line 42, ../../../.rvm/gems/ruby-2.0.0-p0/gems/compass_twitter_bootstrap-2.3.1/stylesheets/compass_twitter_bootstrap/_tooltip.scss */
-.tooltip.top .tooltip-arrow {
+.tooltip.top .tooltip-arrow, .tooltip.top_left .tooltip-arrow, .card-4 .tooltip.symbol-0 .tooltip-arrow, .card-5 .tooltip.symbol-0 .tooltip-arrow, .card-6 .tooltip.symbol-0 .tooltip-arrow, .card-7 .tooltip.symbol-0 .tooltip-arrow, .card-8 .tooltip.symbol-0 .tooltip-arrow, .tooltip.top_right .tooltip-arrow, .card-4 .tooltip.symbol-2 .tooltip-arrow, .card-5 .tooltip.symbol-2 .tooltip-arrow, .card-6 .tooltip.symbol-3 .tooltip-arrow, .card-7 .tooltip.symbol-3 .tooltip-arrow, .card-8 .tooltip.symbol-3 .tooltip-arrow {
   bottom: 0;
   left: 50%;
   margin-left: -5px;
@@ -5914,7 +5979,7 @@ input[type="submit"].btn.btn-mini {
   white-space: normal;
 }
 /* line 28, ../../../.rvm/gems/ruby-2.0.0-p0/gems/compass_twitter_bootstrap-2.3.1/stylesheets/compass_twitter_bootstrap/_popovers.scss */
-.popover.top {
+.popover.top, .popover.top_left, .card-4 .popover.symbol-0, .card-5 .popover.symbol-0, .card-6 .popover.symbol-0, .card-7 .popover.symbol-0, .card-8 .popover.symbol-0, .popover.top_right, .card-4 .popover.symbol-2, .card-5 .popover.symbol-2, .card-6 .popover.symbol-3, .card-7 .popover.symbol-3, .card-8 .popover.symbol-3 {
   margin-top: -10px;
 }
 /* line 29, ../../../.rvm/gems/ruby-2.0.0-p0/gems/compass_twitter_bootstrap-2.3.1/stylesheets/compass_twitter_bootstrap/_popovers.scss */
@@ -5976,7 +6041,7 @@ input[type="submit"].btn.btn-mini {
 }
 
 /* line 75, ../../../.rvm/gems/ruby-2.0.0-p0/gems/compass_twitter_bootstrap-2.3.1/stylesheets/compass_twitter_bootstrap/_popovers.scss */
-.popover.top .arrow {
+.popover.top .arrow, .popover.top_left .arrow, .card-4 .popover.symbol-0 .arrow, .card-5 .popover.symbol-0 .arrow, .card-6 .popover.symbol-0 .arrow, .card-7 .popover.symbol-0 .arrow, .card-8 .popover.symbol-0 .arrow, .popover.top_right .arrow, .card-4 .popover.symbol-2 .arrow, .card-5 .popover.symbol-2 .arrow, .card-6 .popover.symbol-3 .arrow, .card-7 .popover.symbol-3 .arrow, .card-8 .popover.symbol-3 .arrow {
   left: 50%;
   margin-left: -11px;
   border-bottom-width: 0;
@@ -5985,7 +6050,7 @@ input[type="submit"].btn.btn-mini {
   bottom: -11px;
 }
 /* line 82, ../../../.rvm/gems/ruby-2.0.0-p0/gems/compass_twitter_bootstrap-2.3.1/stylesheets/compass_twitter_bootstrap/_popovers.scss */
-.popover.top .arrow:after {
+.popover.top .arrow:after, .popover.top_left .arrow:after, .card-4 .popover.symbol-0 .arrow:after, .card-5 .popover.symbol-0 .arrow:after, .card-6 .popover.symbol-0 .arrow:after, .card-7 .popover.symbol-0 .arrow:after, .card-8 .popover.symbol-0 .arrow:after, .popover.top_right .arrow:after, .card-4 .popover.symbol-2 .arrow:after, .card-5 .popover.symbol-2 .arrow:after, .card-6 .popover.symbol-3 .arrow:after, .card-7 .popover.symbol-3 .arrow:after, .card-8 .popover.symbol-3 .arrow:after {
   bottom: 1px;
   margin-left: -10px;
   border-bottom-width: 0;
@@ -6736,4 +6801,356 @@ a.label:hover, a.label:focus, a.badge:hover, a.badge:focus {
 /* line 28, ../../../.rvm/gems/ruby-2.0.0-p0/gems/compass_twitter_bootstrap-2.3.1/stylesheets/compass_twitter_bootstrap/_utilities.scss */
 .affix {
   position: fixed;
+}
+
+/* 
+ * From Helveti CSS cards
+ */
+/* line 5, ../sass/_card.scss */
+.card {
+  background-color: #fff;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -moz-box-shadow: 0 0 2.5px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 2.5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 2.5px rgba(0, 0, 0, 0.5);
+  height: 140px;
+  margin: 0 7.5px 7.5px 0;
+  position: relative;
+  width: 100px;
+  z-index: 2;
+}
+/* line 19, ../sass/_card.scss */
+.card .back {
+  background-color: red;
+  -webkit-transform: rotateY(180deg);
+  width: 100%;
+  height: 140px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAS0lEQVQYV2OM5OD4v/zHD0YGKADxQUx0MbgCkCSyJnQDUExCNgVdI1ghuknIVsPkGLEpgrkXZgNIDfEKibYaOVgIegabYozgITbAAcK7XatQOpA2AAAAAElFTkSuQmCC);
+}
+/* line 28, ../sass/_card.scss */
+.card.flipped {
+  -webkit-transform: rotateY(180deg);
+}
+/* line 32, ../sass/_card.scss */
+.card.heart, .card.diamond {
+  color: red;
+}
+/* line 36, ../sass/_card.scss */
+.card .corner {
+  line-height: 1;
+  overflow: hidden;
+  position: absolute;
+  text-align: center;
+}
+/* line 42, ../sass/_card.scss */
+.card .corner span {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+}
+/* line 48, ../sass/_card.scss */
+.card .corner .number {
+  font-size: 16px;
+  height: 16px;
+  line-height: 16px;
+}
+/* line 55, ../sass/_card.scss */
+.card.ten .corner .number {
+  font-size: 12px;
+  letter-spacing: -1.8px;
+}
+/* line 61, ../sass/_card.scss */
+.card .corner.top, .card .corner.top_left, .card .card-4 .corner.symbol-0, .card-4 .card .corner.symbol-0, .card .card-5 .corner.symbol-0, .card-5 .card .corner.symbol-0, .card .card-6 .corner.symbol-0, .card-6 .card .corner.symbol-0, .card .card-7 .corner.symbol-0, .card-7 .card .corner.symbol-0, .card .card-8 .corner.symbol-0, .card-8 .card .corner.symbol-0, .card .corner.top_right, .card .card-4 .corner.symbol-2, .card-4 .card .corner.symbol-2, .card .card-5 .corner.symbol-2, .card-5 .card .corner.symbol-2, .card .card-6 .corner.symbol-3, .card-6 .card .corner.symbol-3, .card .card-7 .corner.symbol-3, .card-7 .card .corner.symbol-3, .card .card-8 .corner.symbol-3, .card-8 .card .corner.symbol-3 {
+  left: 4px;
+  top: 2.5px;
+}
+/* line 66, ../sass/_card.scss */
+.card .corner.bottom {
+  bottom: 2.5px;
+  right: 4px;
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+}
+/* line 74, ../sass/_card.scss */
+.card .suit {
+  font-size: 32px;
+  font-weight: bold;
+  height: 30px;
+  line-height: 30px;
+  overflow: hidden;
+  position: absolute;
+  text-align: center;
+  width: 25px;
+}
+
+/* Suit Symbol Locations */
+/* line 87, ../sass/_card.scss */
+.far-left, .top_left, .card-4 .symbol-0, .card-5 .symbol-0, .card-6 .symbol-0, .card-7 .symbol-0, .card-8 .symbol-0, .card-9 .symbol-0, .card-10 .symbol-0, .card-9 .symbol-1, .card-10 .symbol-1, .card-9 .symbol-2, .card-10 .symbol-2, .card-9 .symbol-3, .card-10 .symbol-3 {
+  left: 15px;
+}
+
+/* line 91, ../sass/_card.scss */
+.center, .top_center, .card-2 .symbol-0, .card-3 .symbol-0, .middle_center, .card-A .symbol-0, .card-3 .symbol-1, .card-5 .symbol-4, .card-J .symbol-0, .card-Q .symbol-0, .card-K .symbol-0, .middle_top, .middle_bottom, .middle_top_center, .card-7 .symbol-6, .card-8 .symbol-6, .card-9 .symbol-8, .card-10 .symbol-8, .card-10 .symbol-9 {
+  left: 38px;
+}
+
+/* line 95, ../sass/_card.scss */
+.far-right, .top_right, .card-4 .symbol-2, .card-5 .symbol-2, .card-6 .symbol-3, .card-7 .symbol-3, .card-8 .symbol-3, .card-9 .symbol-4, .card-10 .symbol-4, .card-9 .symbol-5, .card-10 .symbol-5, .card-9 .symbol-6, .card-10 .symbol-6, .card-9 .symbol-7, .card-10 .symbol-7 {
+  right: 15px;
+}
+
+/* line 99, ../sass/_card.scss */
+.top, .top_left, .card-4 .symbol-0, .card-5 .symbol-0, .card-6 .symbol-0, .card-7 .symbol-0, .card-8 .symbol-0, .top_right, .card-4 .symbol-2, .card-5 .symbol-2, .card-6 .symbol-3, .card-7 .symbol-3, .card-8 .symbol-3 {
+  top: 12px;
+}
+
+/* line 103, ../sass/_card.scss */
+.top_center, .card-2 .symbol-0, .card-3 .symbol-0 {
+  top: 5px;
+}
+
+/* line 118, ../sass/_card.scss */
+.middle_center, .card-A .symbol-0, .card-3 .symbol-1, .card-5 .symbol-4, .card-J .symbol-0, .card-Q .symbol-0, .card-K .symbol-0 {
+  top: 45px;
+}
+
+/* line 123, ../sass/_card.scss */
+.middle_top {
+  top: 35px;
+}
+
+/* line 128, ../sass/_card.scss */
+.middle_bottom {
+  bottom: 35px;
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+}
+
+/* line 135, ../sass/_card.scss */
+.middle_left, .card-6 .symbol-1, .card-7 .symbol-1, .card-8 .symbol-1 {
+  left: 15px;
+  top: 55px;
+}
+
+/* line 140, ../sass/_card.scss */
+.middle_right, .card-6 .symbol-4, .card-7 .symbol-4, .card-8 .symbol-4 {
+  right: 15px;
+  top: 55px;
+}
+
+/* line 145, ../sass/_card.scss */
+.middle_top_center, .card-7 .symbol-6, .card-8 .symbol-6, .card-9 .symbol-8, .card-10 .symbol-8 {
+  top: 30px;
+}
+
+/* line 150, ../sass/_card.scss */
+.middle_top_left {
+  left: 15px;
+  top: 40px;
+}
+
+/* line 155, ../sass/_card.scss */
+.middle_top_right {
+  right: 15px;
+  top: 40px;
+}
+
+/* line 160, ../sass/_card.scss */
+.middle_bottom_left {
+  bottom: 40px;
+  left: 15px;
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+}
+
+/* line 167, ../sass/_card.scss */
+.middle_bottom_right {
+  bottom: 40px;
+  right: 15px;
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+}
+
+/* line 174, ../sass/_card.scss */
+.middle_bottom_center, .card-8 .symbol-7, .card-10 .symbol-9 {
+  bottom: 30px;
+  left: 38px;
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+}
+
+/* line 181, ../sass/_card.scss */
+.bottom_center, .card-2 .symbol-1, .card-3 .symbol-2 {
+  bottom: 12px;
+  left: 38px;
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+}
+
+/* line 188, ../sass/_card.scss */
+.bottom_left, .card-4 .symbol-1, .card-5 .symbol-1, .card-6 .symbol-2, .card-7 .symbol-2, .card-8 .symbol-2 {
+  bottom: 12px;
+  left: 15px;
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+}
+
+/* line 195, ../sass/_card.scss */
+.bottom_right, .card-4 .symbol-3, .card-5 .symbol-3, .card-6 .symbol-5, .card-7 .symbol-5, .card-8 .symbol-5 {
+  bottom: 12px;
+  right: 15px;
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+}
+
+/* line 277, ../sass/_card.scss */
+.card-9 .symbol-0, .card-10 .symbol-0 {
+  top: 5px;
+}
+/* line 281, ../sass/_card.scss */
+.card-9 .symbol-1, .card-10 .symbol-1 {
+  top: 30px;
+}
+/* line 285, ../sass/_card.scss */
+.card-9 .symbol-2, .card-10 .symbol-2 {
+  top: 65px;
+}
+/* line 289, ../sass/_card.scss */
+.card-9 .symbol-3, .card-10 .symbol-3 {
+  top: 100px;
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+}
+/* line 295, ../sass/_card.scss */
+.card-9 .symbol-4, .card-10 .symbol-4 {
+  top: 5px;
+}
+/* line 299, ../sass/_card.scss */
+.card-9 .symbol-5, .card-10 .symbol-5 {
+  top: 30px;
+}
+/* line 303, ../sass/_card.scss */
+.card-9 .symbol-6, .card-10 .symbol-6 {
+  top: 65px;
+}
+/* line 307, ../sass/_card.scss */
+.card-9 .symbol-7, .card-10 .symbol-7 {
+  top: 100px;
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+}
+
+/* line 319, ../sass/_card.scss */
+.card-10 .symbol-9 {
+  top: 72.5px;
+}
+
+/* line 326, ../sass/_card.scss */
+.card-J .suit, .card-Q .suit, .card-K .suit {
+  display: none;
+}
+/* line 329, ../sass/_card.scss */
+.card-J .symbol-0, .card-Q .symbol-0, .card-K .symbol-0 {
+  display: block;
+  font-size: 75px;
+  width: auto;
+  height: 75px;
+  left: 30px;
+  top: 50%;
+  margin-top: -37.5px;
+  overflow: visible;
+}
+
+/* line 1, ../sass/_icon.scss */
+.icon-sprite, .icon-coin {
+  display: inline-block;
+}
+
+/* line 42, icon/*.png */
+.icon-sprite, .icon-coin {
+  background: url('../images/icon-s28c41fdc36.png') no-repeat;
+}
+
+/* line 60, ../../../.rvm/gems/ruby-2.0.0-p0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.icon-coin {
+  background-position: 0 0;
+  height: 20px;
+  width: 20px;
+}
+
+/* line 11, ../sass/master.scss */
+h1 {
+  text-align: center;
+  padding: 10px 0;
+}
+
+/* line 17, ../sass/master.scss */
+.player .hand > li {
+  display: inline-block;
+}
+
+/* line 22, ../sass/master.scss */
+.player-coins {
+  padding: 5px 0;
+}
+/* line 24, ../sass/master.scss */
+.player-coins li {
+  margin: 0 20px;
+}
+
+/* line 30, ../sass/master.scss */
+.board-container {
+  position: relative;
+  width: 100%;
+  min-height: 700px;
+  text-align: center;
+}
+/* line 36, ../sass/master.scss */
+.board-container .player {
+  position: absolute;
+}
+/* line 40, ../sass/master.scss */
+.board-container .player-0 {
+  top: 0;
+  left: 10px;
+}
+/* line 45, ../sass/master.scss */
+.board-container .player-1 {
+  top: 0;
+  right: 10px;
+}
+/* line 50, ../sass/master.scss */
+.board-container .player-2 {
+  bottom: 0;
+  left: 10px;
+}
+/* line 54, ../sass/master.scss */
+.board-container .player-3 {
+  bottom: 0;
+  right: 10px;
+}
+
+/* line 60, ../sass/master.scss */
+.game-cards {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -100px;
+  width: 220px;
+}
+/* line 68, ../sass/master.scss */
+.game-cards .game-cards-deck {
+  float: left;
+}
+/* line 72, ../sass/master.scss */
+.game-cards .game-cards-discard {
+  float: right;
 }

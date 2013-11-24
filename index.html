@@ -6,35 +6,81 @@
   <body>
     <h1> Welcome to GMA O'Doh's House of Cards </h1>
 
-    <ul class="js-players-container">
-    </ul>
+    <div class="board-container">
+      <ul class="js-players-container">
+      </ul>
 
+      <div class="game-cards">
+        <div class="game-cards-deck">
+           <div class="card">
+              <div class="back">
+              </div>
+          </div>
+      </div>
+        <div class="game-cards-discard">
+          <div class="card">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="js-cards-container">
+    </div>
     <script id="player-template" type="text/x-handlebars-template">
       
         {{#each this}}
-          <li>
-            <ul>
+          <li class="player player-{{id}}">
+            <ul class="player-coins"> 
+                {{{showCoins lifeCount}}}
+            </ul>
+            <ul class="hand">
               {{#each hand}}
                 <li>
-                  {{this.name}}
-                  of
-                  {{this.suit}}
+                
+                  <div class="card {{this.suit.name}} card-{{this.value.name}}">
+                    <div class="front">
+                      <div class="corner top">
+                        <span class="number">{{this.value.name}}</span>
+                        <span>{{{this.suit.symbol}}}</span>
+                      </div>
+                        {{{symbols this.value.id this.suit.symbol}}}
+                      <div class="corner bottom">
+                        <span class="number">{{this.value.name}}</span>
+                        <span>{{{this.suit.symbol}}}</span>
+                      </div>
+                    </div>
+                  </div>
                 </li>
               {{/each}}
             </ul>
 
-            <div class="player-name">
+            <h4 class="player-name">
               {{name}}
-            </div>
-            <div> 
-              {{lifeCount}}
-            </div>
+            </h4>
+            
           </li>
         {{/each}}
     </script>
+
+    <script id="card-template" type="text/x-handlebars-template">
+      <div class="card {{this.suit.name}} card-{{this.value.name}}" style="float: left;">
+        <div class="front">
+          <div class="corner top">
+            <span class="number">{{this.value.name}}</span>
+            <span class="suit-symbol">{{{this.suit.symbol}}}</span>
+          </div>
+            {{{symbols this.value.id this.suit.symbol}}}
+          <div class="corner bottom">
+            <span class="number">{{this.value.name}}</span>
+            <span>{{{this.suit.symbol}}}</span>
+          </div>
+        </div>
+      </div>
+    </script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
     <script type="text/javascript" src="js/handlebars-v1.1.2.js"></script>
-    
     <script type="text/javascript" src="js/master.js"></script>
   </body>
 </html>

@@ -1,0 +1,8 @@
+.icon-sprite {
+  display: inline-block;
+}
+$icon-layout: smart;
+$icon-sprite-dimensions: true;
+
+@import "icon/*.png";
+@include all-icon-sprites;

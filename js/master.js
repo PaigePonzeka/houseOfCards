@@ -1,37 +1,75 @@
+
+var cardValues = [],
+ suits = [],
+ deck = [], 
+ players = [],
+ cardValues = [],
+ randomNames = ["GMA O'Doh", "Colleen", "Uncle Gary", "Skylar Anne"],
+ playersSource  = $("#player-template").html(),
+ playersTemplate = Handlebars.compile(playersSource),
+ cardsSource  = $("#card-template").html(),
+ cardsTemplate = Handlebars.compile(cardsSource);
+
 $(document).ready(function(){
-  generateCardNames(cardNames);
-  generateSuits(suits);
-  generateDeck();
+  init();
+
   shuffleDeck(deck);
   generatePlayers();
   dealCards(3);
   draw();
+  /*printAllCards();*/
+  /*generateSuits(suits);
+  generateDeck();
+  shuffleDeck(deck);
+  generatePlayers();
+  dealCards(3);
+  draw();*/
 });
 
-var cardNames = [],
- suits = [],
- deck = [], 
- players = [],
- playersSource  = $("#player-template").html(),
- playersTemplate = Handlebars.compile(playersSource);
+/*
+ * initializes the Deck, Generates Suites, Generates Card Values Data,
+ * Generates Deck Iterating through each Card Value for the Numbers of suits that exist
+ */
+var init = function(){
+  cardValues = generateCardValues();
+  generateSuits();
+  generateDeck();
+}
 
+/*
+ * Draws items on the board
+ */
+var draw = function(){
+  renderPlayers(players);
+}
+
+/*
+ * Generates a Card Object from the template an appends it to the cards container
+ */
+var printAllCards = function(){
+  $.each(deck, function(){
+    var cardHtml = cardsTemplate(this);
+    $('.js-cards-container').append(cardHtml);
+  });
+  
+}
 /*
   * Players have a name, cards[], lifeCount 
   */
 var generatePlayers = function(){
   for(var i = 0; i < 4; i++){
     var player = {};
-    player.name = "player-" + i;
-    player.lifeCount = 3; // for scat
+    player.id = i;
+    player.name = randomNames[i];
+    player.lifeCount = 3; // hardcoded for scat
     player.hand = [];
     players.push(player);
   }
 }
 
-var draw = function(){
-  renderPlayers(players);
-}
-
+/* 
+ * generates each player from the player template
+ */
 var renderPlayers = function(){
   console.log(players);
   var playersHtml = playersTemplate(players);
@@ -56,32 +94,20 @@ var dealCards = function(cardTotal) {
 var generateDeck = function(){
   var suitCount = 0;
   $.each(suits, function(){
-    var suit = ""+this;
-    var suitIndex = suitCount;
-    suitCount+=1;
-    var cardCount = 0;
-    $.each(cardNames, function(){
+    var suit = this;
+    $.each(cardValues, function(){
       card = {};
-      var cardName = ""+this;
-      card.suitId = suitIndex;
+      var value = this;
+      card.value = value;
       card.suit = suit;
-      card.name = cardName;
-      card.nameId = cardCount; 
-      var cardValue = cardCount + 1; // For Scat
-
-      if(cardCount == 0) {
-        cardValue = 11;
-      }
-      else if(cardCount == 10 || cardCount == 11 || cardCount == 12 ){ // Jacks Queens and Kings are all worth 10 in scat
-        cardValue= 10;
-      }
-      card.countValue = cardValue;
       deck.push(card);
-      cardCount+=1;
     });
   });
 } 
 
+/* 
+ * Runs several methods to shuffle the cards adequetely
+ */
 var shuffleDeck = function(localDeck) {
   var localDeck = splitAndCombine(localDeck);
   localDeck = splitAndCombine(localDeck);
@@ -91,6 +117,9 @@ var shuffleDeck = function(localDeck) {
   deck = localDeck;
 }
 
+/*
+ * Shuffling Helper Method
+ */
 var splitAndCombine = function(localDeck){
   // simulate shuffling
   // split deck in half
@@ -111,6 +140,9 @@ var splitAndCombine = function(localDeck){
   return newDeck;
 }
 
+/* 
+ * Shuffling Helper Method
+ */
 var splitAndShift = function(localDeck) {
   var newDeck = [];
   // simulates grabbing  a section of moving it around
@@ -137,25 +169,68 @@ var splitAndShift = function(localDeck) {
 /*
  *  Variable Generating Utilities
  */
-var generateCardNames = function(cardNames){
-  cardNames[0] = "Ace";
-  cardNames[1] = "Two";
-  cardNames[2] = "Three";
-  cardNames[3] = "Four";
-  cardNames[4] = "Five";
-  cardNames[5] = "Six";
-  cardNames[6] = "Seven";
-  cardNames[7] = "Eight";
-  cardNames[8] = "Nine";
-  cardNames[9] = "Ten";
-  cardNames[10] = "Jack";
-  cardNames[11] = "Queen";
-  cardNames[12] = "King";
+var generateCardValues = function(cards){
+  var cards = [];
+  cards[0] = setCard(0, 11, "A")
+  cards[1] = setCard(1, 2, "2")
+  cards[2] = setCard(2, 3, "3")
+  cards[3] = setCard(3, 4, "4")
+  cards[4] = setCard(4, 5, "5")
+  cards[5] = setCard(5, 6, "6")
+  cards[6] = setCard(6, 7, "7")
+  cards[7] = setCard(7, 8, "8")
+  cards[8] = setCard(8, 9, "9")
+  cards[9] = setCard(9, 10, "10")
+  cards[10] = setCard(10, 10, "J")
+  cards[11] = setCard(11, 10, "Q")
+  cards[12] = setCard(12, 10, "K")
+  return cards;
 }
 
-var generateSuits = function(suits){
-  suits[0] = "Spades";
-  suits[1] = "Hearts";
-  suits[2] = "Clubs";
-  suits[3] = "Diamonds";
+var setCard = function(index, countValue, name){
+  var card = {};
+  card.id = index;
+  card.name = name;
+  card.countValue = countValue;
+  return card;
 }
+
+var setSuit = function(symbol, id, name){
+  var suit = {};
+  suit.symbol = symbol;
+  suit.id = id;
+  suit.name = name;
+  return suit;
+}
+
+var generateSuits = function(){
+  suits[0] = setSuit("&spades;", 0, "spade");
+  suits[1] = setSuit("&diams;", 1, "diamond");
+  suits[2] = setSuit("&clubs;", 2, "club");
+  suits[3] = setSuit("&hearts;", 3, "heart");
+}
+
+
+/* --------------------------
+ *  Handlebar Helpers 
+ * ----------------------------
+ */
+Handlebars.registerHelper('symbols', function(cardId, suitSymbol) {
+  var symbolHtml = "";
+  var numOfSyms = cardId + 1; 
+  for(var i = 0; i < numOfSyms; i++){
+    symbolHtml += "<span class='suit symbol-"+ i +"'>"+suitSymbol+"</span>";
+  }
+  return symbolHtml;
+});
+
+/* 
+ * Shows the Coins the player has left in the game
+ */
+ Handlebars.registerHelper('showCoins', function(lifeCount) {
+  var coinsString= '';
+  for(var i = 0; i < lifeCount; i++) {
+    coinsString += "<li class='icon-coin'></li>"
+  }
+  return coinsString;
+ });
