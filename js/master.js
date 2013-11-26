@@ -226,6 +226,23 @@ var generateSuits = function(){
 var generateCard = function(cardObj) {
   return cardsTemplate(cardObj);
 }
+
+/*
+ * Takes a card and appends it to the players hand
+ */
+var attachCardToPlayer = function(cardHtml){
+  $(cardHtml).addClass('js-player-hand-card');
+  $('.active-player').find('.js-player-hand').addClass('js-player-hand-discard').append(cardHtml);
+}
+
+/*
+ * Attaches a card to the discard pile
+ */
+ var attachCardToDiscards = function(cardHtml){
+  $(cardHtml).addClass('js-discarded-card').removeClass('js-player-hand-card');
+  $('.js-discarded-cards').append(cardHtml);
+ }
+
 /*
  * Event Listeners
  */
@@ -237,27 +254,26 @@ var generateCard = function(cardObj) {
   // draw a new card to the deck and add it to the active players hand
   var newCard = deck.pop();
   var cardHtml = generateCard(newCard);
-  $('.active-player').find('.js-player-hand').addClass('js-player-hand-discard').append('<li>' + cardHtml +"</li>");
+  attachCardToPlayer('<li class="js-player-hand-card">' + cardHtml +"</li>");
  });
 
 /*
  * Lets Users select a card from the discard pile for their hand
  */
- $('.js-discarded-cards').on('click', '.js-discarded-card', function(){
-  console.log("discarded clicked");
+ $('.js-discarded-cards').on('click', '.js-discarded-card', function(e){
+    e.stopPropagation();
     var discardedCard = $(this).remove();
-    console.log(discardedCard.attr('class'));
     discardedCard.removeClass('js-discarded-card');
-    $('.active-player').find('.js-player-hand').addClass('js-player-hand-discard').append(discardedCard);
+    attachCardToPlayer(discardedCard);
  });
 
 /*
  * Lets Users discard a card when they have four cards in their hand
  */
- $('.js-board').on('click', '.js-player-hand-discard > li', function(){
-    var discardedCard = $(this).remove().addClass('js-discarded-card');
+ $('.js-board').on('click', '.js-player-hand-discard .js-player-hand-card', function(){
+    var discardedCard = $(this).remove();
     $('.js-player-hand-discard').removeClass('.js-player-hand-discard');
-    $('.js-discarded-cards').append(discardedCard);
+    attachCardToDiscards(discardedCard);
     endTurn();
  });
 
